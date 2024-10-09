@@ -4,3 +4,8 @@
 # exclude patterns (uncomment them if you want to use them):
 # *.[oa]
 # *~
+__pycache__/
+.env
+!__init__.py
+**/migrations/*.py
+*.log
