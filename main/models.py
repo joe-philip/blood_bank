@@ -13,6 +13,8 @@ class UserManager(BaseUserManager):
         password = kwargs.get('password')
         if not email:
             raise ValueError('The Email field must be set')
+        if not password:
+            raise ValueError('Password is required')
         email = self.normalize_email(email)
         user = self.model(email=email, **kwargs)
         user.set_password(password)
