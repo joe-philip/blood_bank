@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from main.models import BloodGroups, Roles
+from .models import BloodGroups, Roles
 
 # Register your models here.
 
