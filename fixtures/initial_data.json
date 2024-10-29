@@ -1,0 +1,102 @@
+[
+{
+    "model": "admin_user.bloodgroups",
+    "pk": 1,
+    "fields": {
+        "last_modified": "2024-10-29T16:17:47.735Z",
+        "created_at": "2024-10-29T16:17:47.735Z",
+        "name": "A+",
+        "codename": "a_positive"
+    }
+},
+{
+    "model": "admin_user.bloodgroups",
+    "pk": 2,
+    "fields": {
+        "last_modified": "2024-10-29T17:04:45.653Z",
+        "created_at": "2024-10-29T17:04:45.653Z",
+        "name": "A-",
+        "codename": "a_negative"
+    }
+},
+{
+    "model": "admin_user.bloodgroups",
+    "pk": 3,
+    "fields": {
+        "last_modified": "2024-10-29T17:05:00.155Z",
+        "created_at": "2024-10-29T17:05:00.155Z",
+        "name": "B+",
+        "codename": "b_positive"
+    }
+},
+{
+    "model": "admin_user.bloodgroups",
+    "pk": 4,
+    "fields": {
+        "last_modified": "2024-10-29T17:05:12.367Z",
+        "created_at": "2024-10-29T17:05:12.367Z",
+        "name": "B-",
+        "codename": "b_negative"
+    }
+},
+{
+    "model": "admin_user.bloodgroups",
+    "pk": 5,
+    "fields": {
+        "last_modified": "2024-10-29T17:05:44.395Z",
+        "created_at": "2024-10-29T17:05:44.395Z",
+        "name": "AB+",
+        "codename": "ab_positiv"
+    }
+},
+{
+    "model": "admin_user.bloodgroups",
+    "pk": 6,
+    "fields": {
+        "last_modified": "2024-10-29T17:06:01.982Z",
+        "created_at": "2024-10-29T17:06:01.982Z",
+        "name": "AB-",
+        "codename": "ab_negativ"
+    }
+},
+{
+    "model": "admin_user.bloodgroups",
+    "pk": 7,
+    "fields": {
+        "last_modified": "2024-10-29T17:06:12.634Z",
+        "created_at": "2024-10-29T17:06:12.634Z",
+        "name": "O+",
+        "codename": "o_positive"
+    }
+},
+{
+    "model": "admin_user.bloodgroups",
+    "pk": 8,
+    "fields": {
+        "last_modified": "2024-10-29T17:06:22.296Z",
+        "created_at": "2024-10-29T17:06:22.296Z",
+        "name": "O-",
+        "codename": "o_negative"
+    }
+},
+{
+    "model": "admin_user.roles",
+    "pk": 1,
+    "fields": {
+        "last_modified": "2024-10-29T16:19:26.661Z",
+        "created_at": "2024-10-29T16:19:26.661Z",
+        "name": "Donor",
+        "codename": "donor"
+    }
+},
+{
+    "model": "admin_user.roles",
+    "pk": 2,
+    "fields": {
+        "last_modified": "2024-10-29T17:06:47.990Z",
+        "created_at": "2024-10-29T17:06:47.990Z",
+        "name": "Reciever",
+        "codename": "reciever"
+    }
+}
+]
