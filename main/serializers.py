@@ -1,5 +1,6 @@
 from rest_framework import serializers
 
+from admin_user.models import BloodGroups
 from main.models import User
 
 
@@ -17,3 +18,11 @@ class UserObjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         exclude = ('password',)
+
+
+class BloodGroupsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BloodGroups
+        fields = (
+            'id', 'name', 'codename'
+        )
