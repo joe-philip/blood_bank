@@ -137,5 +137,6 @@ AUTH_USER_MODEL = 'main.User'
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': [
         'root.app_utils.renderer.CustomJSONRenderer'
-    ]
+    ],
+    'EXCEPTION_HANDLER': 'root.app_utils.exception_handler.exception_handler'
 }
