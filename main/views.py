@@ -3,10 +3,10 @@ from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from admin_user.models import BloodGroups
+from admin_user.models import BloodGroups, Roles
 
-from .serializers import (BloodGroupsSerializer, SignupSerializer,
-                          UserObjectSerializer)
+from .serializers import (BloodGroupsSerializer, RolesSerializer,
+                          SignupSerializer, UserObjectSerializer)
 
 # Create your views here.
 
@@ -22,3 +22,8 @@ class SignupAPIView(APIView):
 class BloodGroupsListAPIView(ListAPIView):
     serializer_class = BloodGroupsSerializer
     queryset = BloodGroups.objects.all()
+
+
+class RolesListAPIView(ListAPIView):
+    serializer_class = RolesSerializer
+    queryset = Roles.objects.all()
