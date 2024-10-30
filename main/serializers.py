@@ -13,6 +13,12 @@ class SignupSerializer(serializers.ModelSerializer):
         )
         write_only_fields = ('password',)
 
+    def save(self, **kwargs) -> User:
+        user = super().save(**kwargs)
+        user.set_password(self.validated_data.get('password'))
+        user.save()
+        return user
+
 
 class UserObjectSerializer(serializers.ModelSerializer):
     class Meta:
