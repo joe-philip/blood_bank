@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from admin_user.models import BloodGroups
+from admin_user.models import BloodGroups, Roles
 from main.models import User
 
 
@@ -23,6 +23,14 @@ class UserObjectSerializer(serializers.ModelSerializer):
 class BloodGroupsSerializer(serializers.ModelSerializer):
     class Meta:
         model = BloodGroups
+        fields = (
+            'id', 'name', 'codename'
+        )
+
+
+class RolesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Roles
         fields = (
             'id', 'name', 'codename'
         )
