@@ -11,3 +11,9 @@ class SignupSerializer(serializers.ModelSerializer):
             'date_joined', 'is_active'
         )
         write_only_fields = ('password',)
+
+
+class UserObjectSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        exclude = ('password',)
