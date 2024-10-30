@@ -40,3 +40,13 @@ class RolesSerializer(serializers.ModelSerializer):
         fields = (
             'id', 'name', 'codename'
         )
+
+
+class LoginSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+    password = serializers.CharField()
+
+    def validate_email(self, value: str) -> str:
+        if User.objects.filter(email=value).exists():
+            return value
+        raise serializers.ValidationError('User with email does not exists')
