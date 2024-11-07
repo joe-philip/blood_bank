@@ -1,6 +1,7 @@
 from django.contrib.auth import authenticate
 from rest_framework.exceptions import AuthenticationFailed
 from rest_framework.generics import ListAPIView
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -8,8 +9,8 @@ from rest_framework.views import APIView
 from admin_user.models import BloodGroups, Roles
 
 from .models import User
-from .serializers import (BloodGroupsSerializer, LoginSerializer,
-                          RolesSerializer, SignupSerializer,
+from .serializers import (BloodGroupsSerializer, ChangePasswordSerializer,
+                          LoginSerializer, RolesSerializer, SignupSerializer,
                           UserObjectSerializer)
 from .utils import get_token_for_user
 
@@ -51,3 +52,21 @@ class LoginAPIView(APIView):
             }
             return Response(data)
         raise AuthenticationFailed('Bad Credentials')
+
+
+class ChangePasswordAPI(APIView):
+    permission_classes = (IsAuthenticated,)
+
+    def post(self, request: Request) -> Response:
+        serializer = ChangePasswordSerializer(
+            data=request.data, context=self.get_serializer_context()
+        )
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response()
+
+    def get_serializer_context(self) -> dict:
+        context = {
+            'request': self.request
+        }
+        return context
