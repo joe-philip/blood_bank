@@ -50,3 +50,27 @@ class LoginSerializer(serializers.Serializer):
         if User.objects.filter(email=value).exists():
             return value
         raise serializers.ValidationError('User with email does not exists')
+
+
+class ChangePasswordSerializer(serializers.Serializer):
+    old_password = serializers.CharField()
+    new_password = serializers.CharField()
+
+    def validate_old_password(self, value: str) -> str:
+        user: User = self.context.get('request').user
+        if user.check_password(value):
+            return value
+        raise serializers.ValidationError('Incorrect old password')
+
+    def validate(self, attrs):
+        if attrs.get('old_password') == attrs.get('new_password'):
+            raise serializers.ValidationError(
+                'New password should not be same as old password'
+            )
+        return super().validate(attrs)
+
+    def save(self, **kwargs) -> User:
+        user: User = self.context.get('request').user
+        user.set_password(self.validated_data.get('new_password'))
+        user.save()
+        return user
