@@ -43,6 +43,10 @@ class Countries(MetaModel):
     pincode_regex = models.CharField(max_length=163, null=True)
     phone_codes = models.JSONField(default=dict)
 
+    @property
+    def is_other(self) -> bool:
+        return self.common_name in {'Other', 'OTHER', 'other'}
+
     class Meta:
         db_table = 'countries'
         verbose_name = 'Country'
