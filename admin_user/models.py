@@ -35,11 +35,12 @@ class Countries(MetaModel):
     CIOC_DESCRIPTION = 'Code of the International Olympic Committee'
     cioc = models.CharField(
         db_comment=CIOC_DESCRIPTION,
-        help_text=CIOC_DESCRIPTION
+        help_text=CIOC_DESCRIPTION,
+        null=True
     )
-    flag = models.CharField(max_length=5)
-    timezones = models.JSONField(default=dict)
-    pincode_regex = models.CharField(max_length=10)
+    flag = models.CharField(max_length=5, null=True)
+    timezones = models.JSONField(default=list)
+    pincode_regex = models.CharField(max_length=163, null=True)
     phone_codes = models.JSONField(default=dict)
 
     class Meta:
